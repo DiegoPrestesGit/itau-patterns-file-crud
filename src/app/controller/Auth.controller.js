@@ -1,16 +1,16 @@
 const AuthService = require('../../core/services/Auth.service');
 
 class AuthController {
-  generateToken(req, res) {
+  generateToken(request, response) {
     try {
 
-      const token = AuthService.generateToken(req.params);
-      res.status(201).send({ token });
+      const token = AuthService.generateToken(request.params);
+      response.status(201).send({ token });
 
     } catch (err) {
 
       const { message, stack } = err;
-      res.status(400).send({ message, stack });
+      response.status(400).send({ message, stack });
     }
   }
 }

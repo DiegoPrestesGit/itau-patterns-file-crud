@@ -7,7 +7,7 @@ class FileService {
       const { originalname, buffer } = file;
       const byteArray = new Uint8Array(buffer);
 
-      return await fs.writeFileSync(`assets/${originalname}`, byteArray);
+      return fs.writeFileSync(`assets/${originalname}`, byteArray);
 
     } catch (error) {
 
@@ -18,7 +18,7 @@ class FileService {
   async readFile(fileName) {
     try {
 
-      const file = await fs.readFileSync(`assets/${fileName}`);
+      const file = fs.readFileSync(`assets/${fileName}`);
       console.log(file);
       const myB64 = Buffer.from(file.buffer, 'binary').toString('base64');
 
