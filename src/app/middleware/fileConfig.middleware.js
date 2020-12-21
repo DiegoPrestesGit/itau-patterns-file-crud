@@ -12,7 +12,6 @@ const upload = multer({
 function afterUpload(request, response, next) {
   if (request.file === undefined)
     return response.status(400).send({ message: 'Esse mime type não é suportado!' })
-
   next()
 }
 

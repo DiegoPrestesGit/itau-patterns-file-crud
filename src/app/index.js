@@ -9,6 +9,7 @@ class App {
 
   middlewares() {
     this.app.use(express.json())
+    require("dotenv").config()
   }
 
   routes() {
