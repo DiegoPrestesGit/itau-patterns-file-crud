@@ -20,7 +20,7 @@ class FileService {
 
       return myB64
     } catch (error) {
-      throw err
+      throw error
     }
   }
 }

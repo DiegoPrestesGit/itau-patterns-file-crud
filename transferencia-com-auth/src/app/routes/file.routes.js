@@ -1,17 +1,17 @@
 const express = require('express')
 
 const { getFile, uploadFile } = require('../controller/File.controller')
-const { tokenVerify } = require('../middleware/tokenVerify.middleware')
+const { ensureAuthenticated } = require('../middleware/ensureAuth')
 const { upload, afterUpload } = require('../middleware/fileConfig.middleware')
 
 const router = express.Router()
 
 router.post('/atendimentos/v1/cliente/:id_cliente/arquivos', [
-  tokenVerify,
+  ensureAuthenticated,
   upload.single('file'),
   afterUpload],
   uploadFile)
 
-router.get('/atendimentos/v1/cliente/:id_cliente/conteudo/:id_conteudo', tokenVerify, getFile)
+router.get('/atendimentos/v1/cliente/:id_cliente/conteudo/:id_conteudo', ensureAuthenticated, getFile)
 
 module.exports = router
