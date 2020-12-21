@@ -1,17 +1,20 @@
-const express = require('express')
+const express = require('express');
 
-class App{
-  constructor(){
-    this.app = express()
+class App {
+  constructor() {
+    this.app = express();
+    this.middlewares();
+    this.routes();
   }
 
-  middleware(){
-
+  middlewares() {
+    this.app.use(express.json());
   }
 
-  routes(){
-
+  routes() {
+    this.app.use(require('./routes/file.routes'));
+    this.app.use(require('./routes/auth.routes'));
   }
 }
 
-module.exports = () => new App().app
+module.exports = () => new App().app;

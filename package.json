@@ -1,16 +1,17 @@
 {
-  "name": "itau-transferencia-arquivo",
+  "name": "file-crud",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "CRUD de arquivos",
+  "main": "server",
   "scripts": {
-    "dev":"ENV NODE_ENV=dev nodemon src",
+    "dev": "ENV NODE_ENV=dev nodemon src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Diego Prestes",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2"
   }
 }
