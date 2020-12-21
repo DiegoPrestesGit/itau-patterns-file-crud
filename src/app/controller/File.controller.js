@@ -17,6 +17,7 @@ class FileController {
   }
 
   async getFile(request, response) {
+    console.log('AQUI AHEUHA')
     try {
 
       const { id_cliente, id_conteudo } = request.params

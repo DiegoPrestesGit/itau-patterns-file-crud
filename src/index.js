@@ -1,6 +1,6 @@
 const appFile = `${__dirname}/server.js`
 
-if (process.env.NODE_ENV === 'dev') {
+if (process.env.ENV === 'dev' || process.env.ENV === undefined) {
   const app = require(appFile)
   app.init()
 }

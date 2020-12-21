@@ -4,7 +4,7 @@
   "description": "CRUD de arquivos",
   "main": "server",
   "scripts": {
-    "dev": "ENV NODE_ENV=dev nodemon src",
+    "dev": "nodemon src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Diego Prestes",
