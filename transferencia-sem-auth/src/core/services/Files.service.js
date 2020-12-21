@@ -1,21 +1,21 @@
-const fs = require('fs');
+const fs = require('fs')
 
 class FilesService {
 
-    uploadFile(cpf, file) {
-        console.log('CPF DO CLIENTE:', cpf);
+  uploadFile(cpf, file) {
+    console.log('CPF DO CLIENTE:', cpf)
 
-        return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
 
-            const biteArray = new Uint8Array(file.buffer);
+      const biteArray = new Uint8Array(file.buffer)
 
-            fs.writeFile(`upload/${file.originalname}`, biteArray, (err) => {
-                if (!err) return resolve({message: 'CREATED'});
+      fs.writeFile(`upload/${file.originalname}`, biteArray, (err) => {
+        if (!err) return resolve({ message: 'CREATED' })
 
-                reject(err);
-            });
-        });
-    }
+        reject(err)
+      })
+    })
+  }
 }
 
-module.exports = new FilesService();
+module.exports = new FilesService()

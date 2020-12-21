@@ -16,7 +16,7 @@ function ensureAuthenticated (request, response, next) {
     jwt.verify(token, 'shhhhh', function(decoded) {
       verified = decoded
       console.log(decoded)
-    });
+    })
     console.log('XESQUE')
     console.log(verified)
 

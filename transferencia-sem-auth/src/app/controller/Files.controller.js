@@ -1,26 +1,36 @@
-const { uploadFile } = require('../../core/services/Files.service');
+const { uploadFile } = require('../../core/services/Files.service')
+const { findFileByName } = require('../../core/services/FindFileByName.service')
 
 class FilesController {
 
-    async uploadFile(req, res) {
-        try {
+  async uploadFile(req, res) {
+    try {
 
-            const { params, file, body } = req;
+      const { params, file } = req
 
-            console.log("TESTE DO BODY ::: ", body);
 
-            const result = await uploadFile(params.id_cliente, file);
+      const result = await uploadFile(params.id_cliente, file)
 
-            console.log(result);
+      console.log(result)
 
-            res.status(201).send({ message: 'Seu arquivo foi salvo com sucesso!' });
+      res.status(201).send({ message: 'Seu arquivo foi salvo com sucesso!' })
 
-        } catch (error) {
+    } catch (error) {
 
-            const { message, stack } = error;
-            res.status(500).send({ message, stack });
-        }
+      const { message, stack } = error
+      res.status(500).send({ message, stack })
     }
+  }
+
+  async findFileByName(request, response) {
+    try{
+      const { filename } = request.body
+      const foundIt = findFileByName(filename)
+    } catch (error) {
+      const { message, stack } = error
+      response.status(500).send({ message, stack })
+    }
+  }
 }
 
-module.exports = new FilesController();
+module.exports = new FilesController()
